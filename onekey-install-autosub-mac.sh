@@ -22,7 +22,7 @@ start(){
     if [ $? -eq 0 ]; then
         clear
     else
-        /bin/bash -c "$(curl -fsSL https://www.zla.moe/uploads/homebrew-install.sh)"
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
     fi
     brew install ffmpeg
     ffmpeg
