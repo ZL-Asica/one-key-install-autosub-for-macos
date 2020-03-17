@@ -28,17 +28,25 @@ start(){
     ffmpeg
     if [ $? -eq 0 ]; then
         clear
-        echo "下一步需要获取你的root权限，请输入你的电脑密码，输入期间不会显示，输入完成后回车即可"
+        echo "homebrew及ffmpeg已安装完成!"
+        echo "开始安装pip"
     else
         echo "homebrew或ffmpeg安装失败，建议重试或联系ZL Asica" && exit 1
     fi
-    sudo easy_install pip
+    pip
+    if [ $? -eq 0 ]; then
+        clear
+        echo "下一步需要获取你的root权限，请输入你的电脑密码，输入期间不会显示，输入完成后回车即可"
+    else
+        sudo easy_install pip
+        echo "pip安装完成，开始安装autosub"
+    fi
     sudo pip3 install autosub
     autosub
     if [ $? -eq 0 ]; then
         clear
     else
-        echo "autosub安装失败，建议重试或联系ZL Asica" && exit 1
+        echo "autosub安装失败，建议重试或自行谷歌查查找解决方式" && exit 1
     fi
     echo "----------------------------------------"
     echo "autosub已安装完成(Complete!)"
